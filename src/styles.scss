@@ -1,1 +1,54 @@
 /* You can add global styles to this file, and also import other style files */
+//@import "~@angular/material/prebuilt-themes/indigo-pink.css";
+
+@import '~@angular/material/theming';
+@include mat-core();
+
+$md-mcgpalette0: (
+    50 : #e6f0ec,
+    100 : #c2dace,
+    200 : #99c2ae,
+    300 : #70aa8e,
+    400 : #519775,
+    500 : #32855d,
+    600 : #2d7d55,
+    700 : #26724b,
+    800 : #1f6841,
+    900 : #135530,
+    A100 : #8fffbc,
+    A200 : #5cff9d,
+    A400 : #29ff7e,
+    A700 : #0fff6f,
+    contrast: (
+        50 : #000000,
+        100 : #000000,
+        200 : #000000,
+        300 : #000000,
+        400 : #ffffff,
+        500 : #ffffff,
+        600 : #ffffff,
+        700 : #ffffff,
+        800 : #ffffff,
+        900 : #ffffff,
+        A100 : #000000,
+        A200 : #000000,
+        A400 : #000000,
+        A700 : #000000,
+    )
+);
+
+
+
+$acstats-theme-primary: mat-palette($md-mcgpalette0);
+$acstats-theme-accent: mat-palette($mat-blue-grey, A200, A100, A400);
+$acstats-theme-warn: mat-palette($mat-red);
+
+$acstats-theme: mat-dark-theme(
+    $acstats-theme-primary,
+    $acstats-theme-accent,
+    $acstats-theme-warn
+);
+
+
+
+@include angular-material-theme($acstats-theme);
