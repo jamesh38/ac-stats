@@ -2,9 +2,18 @@
 //@import "~@angular/material/prebuilt-themes/indigo-pink.css";
 
 @import '~@angular/material/theming';
+@import url('https://fonts.googleapis.com/css?family=Black+Ops+One|Changa|Special+Elite|Rajdhani:700');
+@import url('https://use.fontawesome.com/releases/v5.0.13/css/all.css');
+//font-family: font-family: 'Special Elite', cursive;, cursive;
+//font-family: 'Changa', sans-serif;
+
 @include mat-core();
 
-$md-mcgpalette0: (
+body {
+    background: #525252;
+}
+
+$ac-stats-primary-palette: (
     50 : #e6f0ec,
     100 : #c2dace,
     200 : #99c2ae,
@@ -39,7 +48,7 @@ $md-mcgpalette0: (
 
 
 
-$acstats-theme-primary: mat-palette($md-mcgpalette0);
+$acstats-theme-primary: mat-palette($ac-stats-primary-palette);
 $acstats-theme-accent: mat-palette($mat-blue-grey, A200, A100, A400);
 $acstats-theme-warn: mat-palette($mat-red);
 
@@ -49,6 +58,9 @@ $acstats-theme: mat-dark-theme(
     $acstats-theme-warn
 );
 
+$acstats-typography: mat-typography-config(
+    $font-family: 'Rajdhani'
+);
 
-
+@include angular-material-typography($acstats-typography);
 @include angular-material-theme($acstats-theme);
