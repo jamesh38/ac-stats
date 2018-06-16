@@ -7,7 +7,8 @@ import {
   MatCardModule,
   MatSelectModule,
   MatToolbarModule,
-  MatProgressSpinnerModule
+  MatProgressSpinnerModule,
+  MatGridListModule
 } from '@angular/material';
 import { NgxChartsModule } from '@swimlane/ngx-charts';
 import { AppComponent } from './app.component';
@@ -17,6 +18,10 @@ import { RouterModule, Routes } from '@angular/router';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { ComparePlayersComponent } from './compare-players/compare-players.component';
 import { HttpClientModule } from '@angular/common/http';
+import { RefsComponentComponent } from './refs-component/refs-component.component';
+import { FlexLayoutModule } from '@angular/flex-layout';
+import { MapsComponentComponent } from './maps-component/maps-component.component';
+import { PeriodComponentComponent } from './period-component/period-component.component';
 
 const appRoutes: Routes = [
   { path: '', component: DashboardComponent },
@@ -29,7 +34,10 @@ const appRoutes: Routes = [
     HeaderComponent,
     ContentComponent,
     DashboardComponent,
-    ComparePlayersComponent
+    ComparePlayersComponent,
+    RefsComponentComponent,
+    MapsComponentComponent,
+    PeriodComponentComponent
   ],
   imports: [
     BrowserModule,
@@ -45,7 +53,9 @@ const appRoutes: Routes = [
     MatCardModule,
     MatSelectModule,
     MatToolbarModule,
-    MatProgressSpinnerModule
+    MatProgressSpinnerModule,
+    MatGridListModule,
+    FlexLayoutModule
   ],
   providers: [],
   bootstrap: [AppComponent]

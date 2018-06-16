@@ -1,0 +1,23 @@
+<mat-card>
+    <mat-card-title>
+        Referees
+        <acstats-period-component class="period-select" (selectedChange)="periodChange($event)"></acstats-period-component>
+    </mat-card-title>
+    <mat-card-content>
+        <mat-spinner *ngIf="loading"></mat-spinner>
+        <ngx-charts-bar-vertical
+            *ngIf="!loading"
+            [scheme]="'cool'"
+            [results]="refs"
+            [gradient]="gradient"
+            [xAxis]="showXAxis"
+            [yAxis]="showYAxis"
+            [legend]="showLegend"
+            [showXAxisLabel]="showXAxisLabel"
+            [showYAxisLabel]="showYAxisLabel"
+            [xAxisLabel]="xAxisLabel"
+            [yAxisLabel]="yAxisLabel"
+            (select)="onSelect($event)">
+        </ngx-charts-bar-vertical>
+    </mat-card-content> 
+</mat-card>

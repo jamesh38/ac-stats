@@ -1,0 +1,18 @@
+<mat-card>
+    <mat-card-title>
+        Maps Played
+        <acstats-period-component [defaultPeriod]="'30'" class="period-select" (selectedChange)="periodChange($event)"></acstats-period-component>
+    </mat-card-title>
+    <mat-card-content>
+        <mat-spinner *ngIf="loading"></mat-spinner>
+        <ngx-charts-pie-chart
+            *ngIf="!loading"
+            [results]="maps"
+            [legend]="showLegend"
+            [explodeSlices]="explodeSlices"
+            [labels]="showLabels"
+            [doughnut]="doughnut"
+            [gradient]="gradient">
+        </ngx-charts-pie-chart>
+    </mat-card-content>
+</mat-card>

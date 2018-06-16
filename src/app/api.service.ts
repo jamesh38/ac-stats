@@ -9,11 +9,15 @@ export class ApiService {
 
   constructor(public http: HttpClient) { }
 
-  getAveragePlayers() {
-    return this.http.get(environment.url + '/averageplayers');
-  }
+    getAveragePlayers() {
+        return this.http.get(environment.url + '/averageplayers');
+    }
 
-  getRefs(): any {
-    return this.http.get(environment.url + '/refs?period=60');
-  }
+    getRefs(period: string = '7'): any {
+        return this.http.get(environment.url + '/refs?period=' + period);
+    }
+
+    getMaps(period: string = '7'): any {
+        return this.http.get(environment.url + '/maps?period=' + period);
+    }
 }

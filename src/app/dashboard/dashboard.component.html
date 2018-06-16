@@ -1,17 +1,17 @@
-<mat-card>
-    <mat-spinner *ngIf="loading"></mat-spinner>
-    <ngx-charts-bar-vertical
-    *ngIf="!loading"
-    [scheme]="'cool'"
-    [results]="refs"
-    [gradient]="gradient"
-    [xAxis]="showXAxis"
-    [yAxis]="showYAxis"
-    [legend]="showLegend"
-    [showXAxisLabel]="showXAxisLabel"
-    [showYAxisLabel]="showYAxisLabel"
-    [xAxisLabel]="xAxisLabel"
-    [yAxisLabel]="yAxisLabel"
-    (select)="onSelect($event)">
-  </ngx-charts-bar-vertical>
-</mat-card>
+<div fxLayout="row" fxLayout.xs="column" fxLayout.sm="column" fxLayout.md="column" fxFlexFill fxLayoutGap="10px" style="padding-bottom: 10px">
+    <div fxFlex="50" fxFlex.xs="100" fxFlex.sm="100" fxFlex.md="100">
+        <acstats-refs-component></acstats-refs-component>
+    </div>
+    <div fxFlex="50" fxFlex.xs="100" fxFlex.sm="100" fxFlex.md="100">
+        <acstats-maps-component></acstats-maps-component>
+    </div>
+</div>
+
+<div fxLayout="row" fxLayout.xs="column" fxLayout.sm="column" fxLayout.md="column" fxFlexFill fxLayoutGap="10px" style="padding-bottom: 10px">
+    <div fxFlex="50" fxFlex.xs="100" fxFlex.sm="100" fxFlex.md="100">
+
+    </div>
+    <div fxFlex="50" fxFlex.xs="100" fxFlex.sm="100" fxFlex.md="100">
+
+    </div>
+</div>
