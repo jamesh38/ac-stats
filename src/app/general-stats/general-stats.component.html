@@ -1,0 +1,11 @@
+<mat-card>
+    <mat-card-title>
+        General
+        <acstats-period-component class="period-select" (selectedChange)="periodChange($event)"></acstats-period-component>
+    </mat-card-title>
+    <mat-card-content>
+        <mat-spinner *ngIf="loading"></mat-spinner>
+        <ngx-charts-number-card *ngIf="!loading" [results]="data"></ngx-charts-number-card>
+        <small style="color: darkgrey">* Stat not changed by timer period selection.</small>
+    </mat-card-content> 
+</mat-card>

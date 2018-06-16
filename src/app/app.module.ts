@@ -22,6 +22,7 @@ import { RefsComponentComponent } from './refs-component/refs-component.componen
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { MapsComponentComponent } from './maps-component/maps-component.component';
 import { PeriodComponentComponent } from './period-component/period-component.component';
+import { GeneralStatsComponent } from './general-stats/general-stats.component';
 
 const appRoutes: Routes = [
   { path: '', component: DashboardComponent },
@@ -37,7 +38,8 @@ const appRoutes: Routes = [
     ComparePlayersComponent,
     RefsComponentComponent,
     MapsComponentComponent,
-    PeriodComponentComponent
+    PeriodComponentComponent,
+    GeneralStatsComponent
   ],
   imports: [
     BrowserModule,
