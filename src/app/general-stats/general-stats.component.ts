@@ -15,7 +15,11 @@ export class GeneralStatsComponent implements OnInit {
     averagePlayersReady = false;
     gamesReady = false;
     period = '7';
-    data = [];
+    data = [
+        { name: 'Active Players Today*', value: 0 },
+        { name: 'PPG* (Last 25 Games)', value: 0 },
+        { name: 'Total Games', value: 0 }
+    ];
 
     constructor(public api: ApiService) { }
 
@@ -27,19 +31,19 @@ export class GeneralStatsComponent implements OnInit {
         this.activePlayersReady = false;
         this.averagePlayersReady = false;
         this.gamesReady = false;
-        this.data = [];
+
         this.api.getRatingChanges().subscribe(res => {
-            this.data.push({name: 'Active Players Today*', value: res.players.length});
+            this.data[0].value = res.players.length;
             this.activePlayersReady = true;
         });
 
         this.api.getAveragePlayers().subscribe(res => {
-            this.data.push({ name: 'Avergae Players* (Last 25 Games)', value: res.average.average_players});
+            this.data[1].value = res.average.average_players;
             this.averagePlayersReady = true;
         });
 
         this.api.getGames(this.period).subscribe(res => {
-            this.data.push({ name: 'Number of Games', value: res.games.length});
+            this.data[2].value = res.games.length;
             this.gamesReady = true;
         });
     }
