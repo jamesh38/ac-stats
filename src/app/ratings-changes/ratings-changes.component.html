@@ -1,0 +1,18 @@
+<mat-card>
+    <mat-card-title>
+        Today's Rating Changes
+    </mat-card-title>
+    <mat-card-content>
+        <mat-spinner *ngIf="loading"></mat-spinner>
+        <ngx-datatable
+            class="dark"
+            *ngIf="!loading"
+            [rows]="rows"
+            [columns]="columns"
+            columnMode="force"
+            [headerHeight]="50"
+            [footerHeight]="50"
+            [limit]="8">
+        </ngx-datatable>
+    </mat-card-content>
+</mat-card>

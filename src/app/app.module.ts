@@ -11,6 +11,7 @@ import {
   MatGridListModule
 } from '@angular/material';
 import { NgxChartsModule } from '@swimlane/ngx-charts';
+import { NgxDatatableModule } from '@swimlane/ngx-datatable';
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
 import { ContentComponent } from './content/content.component';
@@ -23,6 +24,10 @@ import { FlexLayoutModule } from '@angular/flex-layout';
 import { MapsComponentComponent } from './maps-component/maps-component.component';
 import { PeriodComponentComponent } from './period-component/period-component.component';
 import { GeneralStatsComponent } from './general-stats/general-stats.component';
+import { RatingsChangesComponent } from './ratings-changes/ratings-changes.component';
+import { GamesListComponent } from './games-list/games-list.component';
+import { DatePipe } from '@angular/common';
+import { PlayerRatingsComponent } from './player-ratings/player-ratings.component';
 
 const appRoutes: Routes = [
   { path: '', component: DashboardComponent },
@@ -39,13 +44,17 @@ const appRoutes: Routes = [
     RefsComponentComponent,
     MapsComponentComponent,
     PeriodComponentComponent,
-    GeneralStatsComponent
+    GeneralStatsComponent,
+    RatingsChangesComponent,
+    GamesListComponent,
+    PlayerRatingsComponent
   ],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
     HttpClientModule,
     NgxChartsModule,
+    NgxDatatableModule,
     RouterModule.forRoot(
       appRoutes,
       { enableTracing: true } // <-- debugging purposes only
@@ -59,7 +68,7 @@ const appRoutes: Routes = [
     MatGridListModule,
     FlexLayoutModule
   ],
-  providers: [],
+  providers: [DatePipe],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

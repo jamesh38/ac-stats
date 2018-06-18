@@ -28,4 +28,8 @@ export class ApiService {
     getGames(period: string = '7'): any {
         return this.http.get(environment.url + '/games?period=' + period);
     }
+
+    getRatings(): any {
+        return this.http.get(environment.url + '/ratings');
+    }
 }
