@@ -8,7 +8,9 @@ import {
   MatSelectModule,
   MatToolbarModule,
   MatProgressSpinnerModule,
-  MatGridListModule
+  MatGridListModule,
+  MatInputModule,
+  MatAutocompleteModule
 } from '@angular/material';
 import { NgxChartsModule } from '@swimlane/ngx-charts';
 import { NgxDatatableModule } from '@swimlane/ngx-datatable';
@@ -28,6 +30,9 @@ import { RatingsChangesComponent } from './ratings-changes/ratings-changes.compo
 import { GamesListComponent } from './games-list/games-list.component';
 import { DatePipe } from '@angular/common';
 import { PlayerRatingsComponent } from './player-ratings/player-ratings.component';
+import { PlayerStatsComponent } from './player-stats/player-stats.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { PlayerSelectComponent } from './player-select/player-select.component';
 
 const appRoutes: Routes = [
   { path: '', component: DashboardComponent },
@@ -47,7 +52,9 @@ const appRoutes: Routes = [
     GeneralStatsComponent,
     RatingsChangesComponent,
     GamesListComponent,
-    PlayerRatingsComponent
+    PlayerRatingsComponent,
+    PlayerStatsComponent,
+    PlayerSelectComponent
   ],
   imports: [
     BrowserModule,
@@ -66,7 +73,11 @@ const appRoutes: Routes = [
     MatToolbarModule,
     MatProgressSpinnerModule,
     MatGridListModule,
-    FlexLayoutModule
+    FlexLayoutModule,
+    FormsModule,
+    ReactiveFormsModule,
+    MatInputModule,
+    MatAutocompleteModule
   ],
   providers: [DatePipe],
   bootstrap: [AppComponent]

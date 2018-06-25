@@ -1,0 +1,57 @@
+<div fxLayout="row" fxFlexFill fxLayoutGap="10px" style="padding-bottom: 10px">
+    <div fxFlex="100">
+        <mat-card>
+          <mat-card-title>
+            {{selectedPlayer || 'Select Player'}}
+            <acstats-player-select (playerSelect)="playerSelected($event)" #playerSelect></acstats-player-select>
+          </mat-card-title>
+          <mat-card-content>
+            <mat-spinner *ngIf="loading"></mat-spinner>
+            <div *ngIf="!loading" fxLayout="row" fxFlexFill fxLayoutGap="10px" style="padding-bottom: 10px; height: 150px">
+                <div fxFlex="25">
+                    <ngx-charts-number-card *ngIf="numberCard" [results]="numberCard"></ngx-charts-number-card>
+                </div>
+                <div fxFlex="25">
+                    <ngx-charts-gauge
+                    *ngIf="dr"
+                    [legend]="false"
+                    [results]="dr"
+                    [textValue]="dr.value"
+                    [units]="drGauge.units"
+                    [min]="drGauge.min"
+                    [max]="drGauge.max"
+                    [bigSegments]="drGauge.lgSegs"
+                    [smallSegments]="drGauge.smSegs">
+                  </ngx-charts-gauge>
+                </div>
+                <div fxFlex="25">
+                    <ngx-charts-gauge
+                    *ngIf="kd"
+                    [legend]="false"
+                    [results]="kd"
+                    [textValue]="kd.value"
+                    [min]="kdGauge.min"
+                    [max]="kdGauge.max"
+                    [units]="kdGauge.units"
+                    [bigSegments]="kdGauge.lgSegs"
+                    [smallSegments]="kdGauge.smSegs">
+                  </ngx-charts-gauge>
+                </div>
+                <div fxFlex="25">
+                    <ngx-charts-gauge
+                    *ngIf="kd"
+                    [legend]="false"
+                    [results]="wp"
+                    [textValue]="wp.value"
+                    [min]="wpGauge.min"
+                    [max]="wpGauge.max"
+                    [units]="wpGauge.units"
+                    [bigSegments]="wpGauge.lgSegs"
+                    [smallSegments]="wpGauge.smSegs">
+                  </ngx-charts-gauge>
+                </div>
+            </div>
+          </mat-card-content>
+        </mat-card>
+    </div>
+</div>

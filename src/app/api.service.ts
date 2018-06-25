@@ -32,4 +32,12 @@ export class ApiService {
     getRatings(): any {
         return this.http.get(environment.url + '/ratings');
     }
+
+    getPlayers(): any {
+        return this.http.get(environment.url + '/players');
+    }
+
+    getPlayer(name: string, period: number = 7): any {
+        return this.http.get(environment.url + '/player?name=' + name + '&period=' + period);
+    }
 }
