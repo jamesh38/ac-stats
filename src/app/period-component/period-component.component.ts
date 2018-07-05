@@ -26,7 +26,6 @@ export class PeriodComponentComponent implements OnInit {
     constructor() {}
 
     ngOnInit() {
-        console.log('here', this.defaultPeriod);
         if (this.defaultPeriod) {
             this.selected = this.defaultPeriod;
         }

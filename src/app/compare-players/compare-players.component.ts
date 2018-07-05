@@ -9,6 +9,8 @@ export class ComparePlayersComponent implements OnInit {
 
   constructor() { }
 
+  players = [1];
+
   ngOnInit() {
   }
 

@@ -3,6 +3,7 @@
         <mat-card>
           <mat-card-title>
             {{selectedPlayer || 'Select Player'}}
+            <acstats-period-component *ngIf="!loading" (selectedChange)="periodChange($event)"></acstats-period-component>
             <acstats-player-select (playerSelect)="playerSelected($event)" #playerSelect></acstats-player-select>
           </mat-card-title>
           <mat-card-content>
