@@ -1,9 +1,12 @@
-<div fxLayout="row" fxFlexFill fxLayoutGap="10px" style="padding-bottom: 10px">
+<div fxLayout="row" fxFlexFill fxLayoutGap="10px">
     <div fxFlex="100">
         <mat-card>
           <mat-card-title>
             {{selectedPlayer || 'Select Player'}}
-            <acstats-period-component *ngIf="!loading" (selectedChange)="periodChange($event)"></acstats-period-component>
+            <button mat-icon-button color="warn">
+            <mat-icon class="material-icons" (click)="removePlayerClicked.emit(true)">close</mat-icon>
+            </button>
+            <acstats-period-component [disabled]="loading" (selectedChange)="periodChange($event)"></acstats-period-component>
             <acstats-player-select (playerSelect)="playerSelected($event)" #playerSelect></acstats-player-select>
           </mat-card-title>
           <mat-card-content>
@@ -22,7 +25,8 @@
                     [min]="drGauge.min"
                     [max]="drGauge.max"
                     [bigSegments]="drGauge.lgSegs"
-                    [smallSegments]="drGauge.smSegs">
+                    [smallSegments]="drGauge.smSegs"
+                    [customColors]="drGauge.customColors">
                   </ngx-charts-gauge>
                 </div>
                 <div fxFlex="25">
@@ -35,7 +39,8 @@
                     [max]="kdGauge.max"
                     [units]="kdGauge.units"
                     [bigSegments]="kdGauge.lgSegs"
-                    [smallSegments]="kdGauge.smSegs">
+                    [smallSegments]="kdGauge.smSegs"
+                    [customColors]="kdGauge.customColors">>
                   </ngx-charts-gauge>
                 </div>
                 <div fxFlex="25">
@@ -48,7 +53,8 @@
                     [max]="wpGauge.max"
                     [units]="wpGauge.units"
                     [bigSegments]="wpGauge.lgSegs"
-                    [smallSegments]="wpGauge.smSegs">
+                    [smallSegments]="wpGauge.smSegs"
+                    [customColors]="wpGauge.customColors">>
                   </ngx-charts-gauge>
                 </div>
             </div>

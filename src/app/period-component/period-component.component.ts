@@ -9,6 +9,7 @@ export class PeriodComponentComponent implements OnInit {
 
     @Output() selectedChange = new EventEmitter<boolean>();
     @Input() defaultPeriod: string;
+    @Input() disabled: boolean = false;
 
     periods = [
         { value: '3', viewValue: 'Last 3 days' },

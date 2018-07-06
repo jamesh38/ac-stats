@@ -10,7 +10,8 @@ import {
   MatProgressSpinnerModule,
   MatGridListModule,
   MatInputModule,
-  MatAutocompleteModule
+  MatAutocompleteModule,
+  MatIconModule
 } from '@angular/material';
 import { NgxChartsModule } from '@swimlane/ngx-charts';
 import { NgxDatatableModule } from '@swimlane/ngx-datatable';
@@ -77,7 +78,8 @@ const appRoutes: Routes = [
     FormsModule,
     ReactiveFormsModule,
     MatInputModule,
-    MatAutocompleteModule
+    MatAutocompleteModule,
+    MatIconModule
   ],
   providers: [DatePipe],
   bootstrap: [AppComponent]

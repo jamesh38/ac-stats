@@ -7,11 +7,28 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ComparePlayersComponent implements OnInit {
 
-  constructor() { }
+    constructor() { }
 
-  players = [1];
+    players = [0];
 
-  ngOnInit() {
-  }
+    ngOnInit() {
+    }
+
+    addPlayer() {
+        if (this.players.length === 5) {
+            return;
+        }
+
+        this.players.push(this.players.length);
+    }
+
+    removePlayer(player) {
+
+        if (this.players.length === 1) {
+            return;
+        }
+
+        this.players.splice(player, 1);
+    }
 
 }

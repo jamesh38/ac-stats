@@ -1,5 +1,11 @@
-<div fxLayout="row" fxFlexFill fxLayoutGap="10px" *ngFor="let player of players">
+<div fxLayout="row" fxFlexFill fxLayoutGap="10px" *ngFor="let player of players" style="padding-bottom: 10px;">
     <div fxFlex="100">
-        <acstats-player-stats></acstats-player-stats>
+        <acstats-player-stats (removePlayerClicked)="removePlayer(player)"></acstats-player-stats>
+    </div>
+</div>
+
+<div fxLayout="row">
+    <div fxLayoutAlign="center center" fxFlexFill>
+        <button mat-raised-button color="primary" (click)="addPlayer()">Add Player</button>
     </div>
 </div>

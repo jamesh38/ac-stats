@@ -1,5 +1,5 @@
 <mat-form-field>
-    <mat-select placeholder="Time Period" [(value)]="selected" (selectionChange)="selectChanged($event)">
+    <mat-select [disabled]="disabled" placeholder="Time Period" [(value)]="selected" (selectionChange)="selectChanged($event)">
         <mat-option *ngFor="let period of periods" [value]="period.value">
             {{ period.viewValue }}
         </mat-option>
