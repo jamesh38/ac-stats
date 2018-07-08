@@ -30,7 +30,11 @@
               "src/apple-touch-icon.png",
               "src/site.webmanifest",
               "src/browserconfig.xml",
-              "src/safari-pinned-tab.svg"
+              "src/safari-pinned-tab.svg",
+              "src/mstile-150x150.png",
+              "src/android-chrome-192x192.png",
+              "src/android-chrome-384x384.png",
+              "src/mstile-150x150.png"
             ],
             "styles": [
               "src/styles.scss"
