@@ -76,6 +76,7 @@ export class PlayerStatsComponent {
                 {name: 'Games Played', value: res.played},
                 {name: 'Avg Kills', value: res.stats.kills},
                 {name: 'Avg Deaths', value: res.stats.deaths},
+                {name: 'Avg TiP (Joy)', value: this.fmtMSS(Math.floor(res.stats.deaths * 13))}
             ];
             this._loading = false;
         });
@@ -90,4 +91,6 @@ export class PlayerStatsComponent {
         const c = 120 * percent;
         return 'hsl(' + c + ', 100%, 50%)';
     }
+
+    fmtMSS(s) { return (s - (s %= 60)) / 60 + (9 < s ? ':' : ':0') + s; }
 }
