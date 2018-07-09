@@ -55,9 +55,39 @@ const uploadDir = function(s3Path, bucketName) {
         };
         cloudfront.createInvalidation(params, function(err, data) {
             if (err) console.log(err, err.stack); // an error occurred
-            else     console.log("Succesffully invalidated.");           // successful response
+            else{ 
+                console.log("Successfully invalidated.");
+                console.log("Waiting for invalidation to complete...");
+                pollInvalidation(0, 30, data);
+            }
         });
     }, 3000)
 };
+
+function pollInvalidation(tries, maxTries, data) {
+    tries++;
+    if(tries > maxTries) {
+        return;
+    }
+
+    let cloudfront = new AWS.CloudFront();
+
+    setTimeout(() => {
+        cloudfront.getInvalidation({
+            DistributionId: 'E1V6PC9HA59YI1',
+            Id: data.Invalidation.Id
+        }, function (err, newdata) {
+            if (err) console.log(err, err.stack); // an error occurred
+            else {
+                if (newdata.Invalidation.Status === 'Completed') {
+                    console.log('Try ' + tries + '. Status: ' + newdata.Invalidation.Status + '. Invalidation complete. Deployment finished.');
+                } else {
+                    console.log('Try ' + tries + '. Status: ' + newdata.Invalidation.Status + '. Invalidation still in progress...');
+                    pollInvalidation(tries, maxTries, newdata);
+                }
+            }
+        });
+    }, 5000);
+}
 
 uploadDir("./dist/ac-stats", "acstats");
