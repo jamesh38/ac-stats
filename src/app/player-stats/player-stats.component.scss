@@ -22,3 +22,9 @@ acstats-period-component {
 ngx-charts-gauge {
     fill: white;
 }
+
+@media screen and (max-width: 1280px) {
+    mat-card {
+        height: 1100px;
+    }
+}

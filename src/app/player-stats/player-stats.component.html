@@ -11,7 +11,7 @@
           </mat-card-title>
           <mat-card-content>
             <mat-spinner *ngIf="loading"></mat-spinner>
-            <div *ngIf="!loading" fxLayout="row" fxFlexFill fxLayoutGap="10px" style="padding-bottom: 10px; height: 150px">
+            <div *ngIf="!loading" fxLayout.gt-lg="row" fxLayout.lt-lg="column" fxFlexFill fxLayoutGap="10px" style="padding-bottom: 10px; height: 150px">
                 <div fxFlex="25">
                     <ngx-charts-number-card *ngIf="numberCard" [results]="numberCard"></ngx-charts-number-card>
                 </div>

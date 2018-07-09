@@ -11,7 +11,8 @@ import {
   MatGridListModule,
   MatInputModule,
   MatAutocompleteModule,
-  MatIconModule
+  MatIconModule,
+  MatMenuModule
 } from '@angular/material';
 import { NgxChartsModule } from '@swimlane/ngx-charts';
 import { NgxDatatableModule } from '@swimlane/ngx-datatable';
@@ -79,7 +80,8 @@ const appRoutes: Routes = [
     ReactiveFormsModule,
     MatInputModule,
     MatAutocompleteModule,
-    MatIconModule
+    MatIconModule,
+    MatMenuModule
   ],
   providers: [DatePipe],
   bootstrap: [AppComponent]

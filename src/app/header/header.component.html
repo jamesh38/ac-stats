@@ -1,8 +1,20 @@
 <mat-toolbar class="mat-elevation-z6" color="primary">
-  <button routerLink="/" class="logo-button" mat-button>AC STATS</button>
-  <button routerLink="/compare" mat-button>Compare Players</button>  
-  <span class="filler"></span>
-  <a mat-button target="_blank" href="https://github.com/jamesh38"><i class="fab fa-2x fa-github"></i> <span style="font-size: 1.4rem"> Github</span></a>
-  <a mat-button target="_blank" href="https://github.com/jamesh38/ac-stats"><i class="fas fa-mouse-pointer"></i> Front</a>
-  <a mat-button target="_blank" href="https://github.com/jamesh38/ac-stats-slapi"><i class="fas fa-database"></i> Back</a>
+    <button routerLink="/" class="logo-button" mat-button fxHide.gt-sm>ACST</button>
+    <div fxLayout="row" fxShow="false" fxShow.gt-sm>
+        <button routerLink="/" class="logo-button" mat-button>AC STATS</button>
+        <button routerLink="/compare" mat-button>Compare Players</button>  
+    </div>
+    <span class="filler"></span>
+    <div fxLayout="row" fxShow="false" fxShow.gt-sm>
+        <a mat-button target="_blank" href="https://github.com/jamesh38"><i class="fab fa-2x fa-github"></i> <span style="font-size: 1.4rem"> Github</span></a>
+        <a mat-button target="_blank" href="https://github.com/jamesh38/ac-stats"><i class="fas fa-mouse-pointer"></i> Front</a>
+        <a mat-button target="_blank" href="https://github.com/jamesh38/ac-stats-slapi"><i class="fas fa-database"></i> Back</a>
+    </div>
+    <button mat-button [mat-menu-trigger-for]="menu" fxHide="false" fxHide.gt-sm>
+        <mat-icon>menu</mat-icon>
+    </button>
 </mat-toolbar>
+<mat-menu x-position="before" #menu="matMenu">
+    <button routerLink="/" mat-menu-item>Home</button>
+    <button routerLink="/compare" mat-menu-item>Compare Players</button>
+</mat-menu>
