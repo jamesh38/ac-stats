@@ -7,6 +7,11 @@ import { ApiService } from '../api.service';
   styleUrls: ['./dashboard.component.scss']
 })
 export class DashboardComponent implements OnInit {
-  constructor(public api: ApiService) {}
+  constructor(public api: ApiService) {
+        const playerList = localStorage.getItem('acstats.players');
+        if (!playerList) {
+             this.api.getPlayers().subscribe(players => localStorage.setItem('acstats.players', JSON.stringify(players)));
+        }
+  }
   ngOnInit() {}
 }
