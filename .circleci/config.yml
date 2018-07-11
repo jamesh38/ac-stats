@@ -18,9 +18,8 @@ jobs:
 
     steps:
       - checkout
-      - run: npm install -g @angular/cli
       - run: npm install -q
-      - run: ng build --prod
+      - run: node_modules/.bin/ng build --prod
       - run: node deploy.js
 
 
