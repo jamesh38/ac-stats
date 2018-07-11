@@ -8,6 +8,10 @@ jobs:
     docker:
       # specify the version you desire here
       - image: circleci/node:10.6
+        environtment:
+          AWS_ACCESS_KEY_ID: ${AWS_KEY}
+          AWS_SECRET_ACCESS_KEY: ${AWS_SECRET}
+
       
       # Specify service dependencies here if necessary
       # CircleCI maintains a library of pre-built images
@@ -18,8 +22,6 @@ jobs:
 
     steps:
       - checkout
-      - run: export AWS_ACCESS_KEY_ID=$AWS_KEY
-      - run: export AWS_SECRET_ACCESS_KEY=$AWS_SECRET
       - run: npm install -q
       - run: node_modules/.bin/ng build --prod
       - run: node deploy.js

@@ -33,7 +33,7 @@ const uploadDir = function(s3Path, bucketName) {
         };
         s3.putObject(params, function(err, data) {
             if (err) {
-                console.log(err)
+                throw new Error(err);
             } else {
                 console.log("Successfully uploaded " + fileName + " to " + bucketName);
             }
@@ -54,7 +54,9 @@ const uploadDir = function(s3Path, bucketName) {
             }
         };
         cloudfront.createInvalidation(params, function(err, data) {
-            if (err) console.log(err, err.stack); // an error occurred
+            if (err) {
+                throw new Error(err);
+            }
             else{ 
                 console.log("Successfully invalidated.");
                 console.log("Waiting for invalidation to complete...");
@@ -77,7 +79,9 @@ function pollInvalidation(tries, maxTries, data) {
             DistributionId: 'E1V6PC9HA59YI1',
             Id: data.Invalidation.Id
         }, function (err, newdata) {
-            if (err) console.log(err, err.stack); // an error occurred
+            if (err) {
+                throw new Error(err);
+            }
             else {
                 if (newdata.Invalidation.Status === 'Completed') {
                     console.log('Try ' + tries + '. Status: ' + newdata.Invalidation.Status + '. Invalidation complete. Deployment finished.');
