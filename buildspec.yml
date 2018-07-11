@@ -1,0 +1,15 @@
+version: 0.2
+
+phases:
+  install:
+    commands:
+      - echo Installing packages...
+      - npm install
+  build:
+    commands:
+      - echo Building...
+      - ng build --prod
+  post_build:
+    commands:
+      - echo Deploying...
+      - node deploy.js
