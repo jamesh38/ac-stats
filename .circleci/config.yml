@@ -14,7 +14,7 @@ jobs:
       - run: npm install -q
       - run: node_modules/.bin/ng build --prod
       - run: node deploy.js
-    deploy:
+  deploy:
     docker:
       - image: circleci/python:2.7-jessie
     working_directory: ~/circleci-docs
