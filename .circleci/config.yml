@@ -22,7 +22,7 @@ jobs:
 
     steps:
       - checkout
-      - run: echo AWS_ACCESS_KEY_ID
+      - run: echo $AWS_ACCESS_KEY_ID
       - run: npm install -q
       - run: node_modules/.bin/ng build --prod
       - run: node deploy.js
