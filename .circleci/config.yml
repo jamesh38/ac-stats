@@ -9,8 +9,8 @@ jobs:
       # specify the version you desire here
       - image: circleci/node:10.6
         environment:
-          AWS_ACCESS_KEY_ID: ${AWS_KEY}
-          AWS_SECRET_ACCESS_KEY: ${AWS_SECRET}
+          AWS_ACCESS_KEY_ID: AWS_KEY
+          AWS_SECRET_ACCESS_KEY: AWS_SECRET
 
       
       # Specify service dependencies here if necessary
@@ -22,6 +22,7 @@ jobs:
 
     steps:
       - checkout
+      - run: echo AWS_ACCESS_KEY_ID
       - run: npm install -q
       - run: node_modules/.bin/ng build --prod
       - run: node deploy.js
