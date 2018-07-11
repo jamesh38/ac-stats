@@ -93,6 +93,10 @@ function listAllKeys(token, cb) {
 function deleteFilesInBucket() {
     let s3 = new AWS.S3();
     listAllKeys(null, keys => {
+        if(keys.length <= 0) {
+            uploadDir("./dist/ac-stats", "acstats");
+            return;
+        }
         s3.deleteObjects({
             Bucket: 'acstats',
             Delete: {
