@@ -134,8 +134,8 @@ function createInvalidation(files) {
         }
         else {
             console.log("Successfully invalidated.");
-            console.log("Waiting for invalidation to complete...");
-            pollInvalidation(0, 30, data);
+            // console.log("Waiting for invalidation to complete...");
+            // pollInvalidation(0, 30, data);
         }
     });
 }
