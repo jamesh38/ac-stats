@@ -8,7 +8,8 @@ function uploadDir(s3Path, bucketName) {
     let files = [];
 
     walkSync(s3Path, function(filePath, stat) {
-        let fileName = filePath.split("\\")[2];
+        let fileName = filePath.split("/")[2];
+        console.log(fileName);
         files.push(fileName);
         let params = {
             Bucket: bucketName,
