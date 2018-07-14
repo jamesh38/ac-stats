@@ -2,23 +2,10 @@ var AWS = require('aws-sdk');
 var path = require("path");
 var fs = require('fs');
 const mime = require('mime-types')
+const s3 = new AWS.S3();
 
 function uploadDir(s3Path, bucketName) {
-
-    let s3 = new AWS.S3();
     let files = [];
-
-    function walkSync(currentDirPath, callback) {
-        fs.readdirSync(currentDirPath).forEach(function (name) {
-            var filePath = path.join(currentDirPath, name);
-            var stat = fs.statSync(filePath);
-            if (stat.isFile()) {
-                callback(filePath, stat);
-            } else if (stat.isDirectory()) {
-                walkSync(filePath, callback);
-            }
-        });
-    }
 
     walkSync(s3Path, function(filePath, stat) {
         let fileName = filePath.split("\\")[2];
@@ -43,8 +30,19 @@ function uploadDir(s3Path, bucketName) {
     setTimeout(() => {
         createInvalidation();
     }, 5000);
-
 };
+
+function walkSync(currentDirPath, callback) {
+    fs.readdirSync(currentDirPath).forEach(function (name) {
+        var filePath = path.join(currentDirPath, name);
+        var stat = fs.statSync(filePath);
+        if (stat.isFile()) {
+            callback(filePath, stat);
+        } else if (stat.isDirectory()) {
+            walkSync(filePath, callback);
+        }
+    });
+}
 
 function pollInvalidation(tries, maxTries, data) {
     tries++;
@@ -91,7 +89,6 @@ function listAllKeys(token, cb) {
 }
 
 function deleteFilesInBucket() {
-    let s3 = new AWS.S3();
     listAllKeys(null, keys => {
         if(keys.length <= 0) {
             uploadDir("./dist/ac-stats", "acstats");
@@ -109,7 +106,10 @@ function deleteFilesInBucket() {
                 throw new Error(err);
             } else {
                 console.log(data);
-                uploadDir("./dist/ac-stats", "acstats");
+                console.log('waiting 2');
+                setTimeout(() => {
+                    uploadDir("./dist/ac-stats", "acstats");
+                }, 2000);
             }
         });
     });
