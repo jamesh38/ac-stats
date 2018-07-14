@@ -1,0 +1,16 @@
+version: 0.2
+
+phases:
+  install:
+    commands:
+      - echo Entered the install phase...
+      - npm install -g @angular/cli
+      - npm install
+  build:
+    commands:
+      - echo Entered the build phase...
+      - ng build --prod
+  post_build:
+    commands:
+      - echo Entered the deploy phase...
+      - node deploy.js
